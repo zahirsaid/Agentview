@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>الخدمات البنكية السريعة</title>
+<style>
+:root{--bg:#ffffff;--card:#fff;--tx:#1b2430;--mu:#5b6675;--pr:#1f3a5f;--bd:#d3d9e1;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{color-scheme:light}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#10171d;--card:#18222b;--tx:#e8eef2;--mu:#9ab;--pr:#3b6ea8;--bd:#2a3844}
+:root[data-theme="dark"] .hl{background:rgba(59,110,168,.28)}
+.tgs{position:fixed;top:calc(env(safe-area-inset-top,0px) + 8px);left:12px;z-index:10;display:flex;gap:6px}
+.tg{width:auto!important;padding:6px 12px!important;margin:0!important;border-radius:20px!important;font-size:13px!important;background:var(--card)!important;color:var(--tx)!important;border:1px solid var(--bd)!important}
+@media print{:root[data-theme="dark"]{--bg:#fff;--card:#fff;--tx:#000;--mu:#555;--pr:#1f3a5f;--bd:#ccc}.tgs,.tg{display:none!important}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;padding:48px 16px 16px}
+.w{max-width:640px;margin:auto}h1{font-size:20px;text-align:center}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px;margin:12px 0}
+.s{display:none}.s.on{display:block}.mid.on{display:flex;align-items:center;min-height:65vh}.mid .card{width:100%;box-sizing:border-box}
+button{font:inherit;width:100%;padding:14px;margin:6px 0;border-radius:10px;border:1px solid var(--pr);background:var(--pr);color:#fff;cursor:pointer}
+button.o{background:transparent;color:var(--pr)}
+label{display:block;margin:10px 0 4px;color:var(--mu);font-size:14px}
+input,select{font:inherit;width:100%;padding:11px;border-radius:8px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);box-sizing:border-box}
+.r{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--bd);font-size:15px}
+.r b{color:var(--pr)}.in{border-inline-start:5px solid #8a96a6}.res{border-inline-start:5px solid var(--pr)}.in h3{color:var(--mu)}.res h3{color:var(--pr)}.hl{background:rgba(31,58,95,.1);font-weight:bold;padding:10px 6px}.em td,.em th{background:#0f6b5c!important;color:#fff!important;font-weight:bold;font-size:14px}.foot{text-align:center;font-size:11px;color:var(--mu);opacity:.65;margin:28px 0 8px}.warn{white-space:pre-line;line-height:1.7;background:#fff3cd;color:#664d03;padding:10px;border-radius:8px;margin:8px 0}
+.tb{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px;text-align:center}
+th,td{border:1px solid var(--bd);padding:6px;white-space:nowrap}th{background:var(--pr);color:#fff}
+.pending{text-align:center;padding:30px 0;font-size:18px;color:var(--mu)}
+@media print{button,.np{display:none!important}body{background:#fff;color:#000}}
+
+body{font-family:"Segoe UI","Noto Sans Arabic",Tahoma,system-ui,sans-serif;padding:84px 16px 20px;line-height:1.55}
+.w{max-width:560px}.card{border-radius:12px;padding:18px}.mid.on{display:block;min-height:0}
+svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+button{border-radius:10px;font-weight:600;font-size:15px;padding:13px 16px;transition:background .15s,border-color .15s,transform .05s;box-shadow:0 1px 2px rgba(16,32,56,.15)}
+button:hover{filter:brightness(1.1)}button:active{transform:scale(.985)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #4a7fc1;outline-offset:2px}
+button.o{box-shadow:none;background:transparent}
+input,select{border-radius:8px;padding:12px;transition:border-color .15s,box-shadow .15s}
+input:focus,select:focus{border-color:var(--pr);box-shadow:0 0 0 3px rgba(31,58,95,.15);outline:none}
+.menu{padding:10px}.menu>h3{margin:6px 8px 12px}
+.menu>button:not(.o){display:flex;align-items:center;gap:12px;text-align:start;margin:0 0 8px;padding:14px;background:var(--card);color:var(--tx);border:1px solid var(--bd);box-shadow:none}
+.menu>button:not(.o):hover{background:rgba(31,58,95,.07);border-color:var(--pr);filter:none}
+.menu>button:not(.o)::after{content:"";margin-inline-start:auto;width:8px;height:8px;border-left:2px solid var(--mu);border-bottom:2px solid var(--mu);transform:rotate(45deg)}
+html[dir=ltr] .menu>button:not(.o)::after{transform:rotate(-135deg)}
+.menu>button.o{margin:6px 0 0}
+.ic{width:40px;height:40px;border-radius:10px;background:rgba(31,58,95,.09);display:flex;align-items:center;justify-content:center;color:var(--pr);flex:none}.ic svg{width:22px;height:22px}
+.hero{text-align:center;padding:6px 0 16px}.hero h2{font-size:22px;margin:0 0 14px;color:var(--pr)}
+.sb{position:relative}.sb svg{position:absolute;inset-inline-start:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--mu)}
+.sb input{padding-inline-start:42px;border-radius:12px;height:48px;font-size:15px}
+#sr{margin-bottom:10px}.ri{padding:12px 4px;border-bottom:1px solid var(--bd);cursor:pointer}.ri b{display:block;font-size:15px}.ri small{color:var(--mu)}.ri:hover{background:rgba(31,58,95,.06)}
+.tgs{flex-direction:column;gap:6px}
+.tg{display:flex!important;align-items:center;gap:6px;font-size:12px!important;font-weight:600!important;box-shadow:none!important}.tg svg{width:15px;height:15px}
+.hb{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin:30px 0 4px;padding:13px;background:var(--card);color:var(--pr);border:1.5px solid var(--pr);box-shadow:none}.hb svg{width:18px;height:18px}.hb:hover{background:rgba(31,58,95,.08);filter:none}
+.bk{position:fixed;top:calc(env(safe-area-inset-top,0px) + 8px);right:12px;z-index:10;width:42px;height:42px;padding:0;margin:0;border-radius:50%;background:var(--card);color:var(--pr);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center}
+.bk svg{width:20px;height:20px}html[dir=ltr] .bk svg{transform:scaleX(-1)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;aspect-ratio:1/1;padding:16px;background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:18px;box-shadow:0 2px 8px rgba(16,32,56,.08);font-size:15px;font-weight:600;text-align:center}
+.tile:hover{background:rgba(31,58,95,.05);border-color:var(--pr);filter:none}
+.ti{width:60px;height:60px;border-radius:16px;background:rgba(31,58,95,.08);display:flex;align-items:center;justify-content:center;color:var(--pr)}
+.ti svg{width:34px;height:34px}.ac{stroke:#d1495b}
+#lg{direction:ltr;gap:2px!important;padding:4px!important}.lo{padding:3px 9px;border-radius:12px;font-size:12px;font-weight:700;color:var(--mu)}.lo.on{background:var(--pr);color:#fff}
+@media print{.bk,.tgs,.hero,.hb{display:none!important}}
+
+
+
+</style></head><body><button id="bk" class="bk np" onclick="goBack()" aria-label="Back" style="display:none"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+<div class="tgs np"><button id="tg" class="tg np" onclick="toggleTheme()"></button><button id="lg" class="tg np" onclick="toggleLang()" aria-label="Language"><span class="lo on">ع</span><span class="lo">E</span></button></div>
+<div id="lock" style="min-height:80vh;display:flex;align-items:center;justify-content:center"><div class="card" style="width:100%;max-width:340px;text-align:center">
+<h3>الخدمات البنكية السريعة</h3><label style="text-align:center">أدخل رمز الدخول</label>
+<input id="pin" type="password" inputmode="numeric" maxlength="4" autocomplete="off" style="text-align:center;font-size:24px;letter-spacing:10px" oninput="chkPin()">
+<div id="pe" style="color:#c0392b;min-height:22px;margin-top:8px;font-size:14px"></div>
+<button onclick="chkPin(1)">دخول</button></div></div>
+<div class="w" id="app" style="display:none">
+<h1 id="ttl">الخدمات البنكية</h1>
+
+<div class="s on" id="s1">
+<div class="hero"><h2>مرحباً بك في مركز المساعدةالخدمات السريعة</h2>
+<div class="sb"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="sq" type="search" placeholder="ابحث في الخدمات والبطاقات والرسوم..." oninput="srch()" autocomplete="off"></div></div>
+<div id="sr"></div>
+<div id="hm" style="padding:0">
+<div class="tiles">
+<button class="tile" onclick="go('s2')"><span class="ti"><svg viewBox="0 0 24 24"><path d="M5 21V5l9-2v18M14 8h5v13M3 21h18"/><path class="ac" d="M8 8h3M8 12h3M8 16h3"/></svg></span><span>التجاري</span></button>
+<button class="tile" onclick="go('si')"><span class="ti"><svg viewBox="0 0 24 24"><path d="M19 14.5A8 8 0 1 1 9.5 5a6.5 6.5 0 0 0 9.5 9.5z"/><path class="ac" d="M17 3v4M15 5h4"/></svg></span><span>الإسلامي</span></button>
+</div>
+<div class="menu" style="padding:0"><button onclick="go('sx')"><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM15 3v4h4M9 12h7M9 16h7"/></svg></span><span>تفاصيل ورسوم أخرى</span></button></div>
+</div></div>
+
+<div class="s mid" id="sx"><div class="card"><h3>تفاصيل ورسوم أخرى</h3>
+<button onclick="go('sck')">الشيكات</button>
+<button onclick="go('spr')">الفترة الزمنية لحل المشكلات</button>
+<button onclick="go('sbr')">الفروع</button>
+<button onclick="go('smc')">مواقع ماكينات الخدمات الذاتية</button>
+<button class="o" onclick="go('s1')">رجوع</button></div></div>
+
+<div class="s" id="spr">
+<div class="card res"><h3>الفترة الزمنية لحل المشكلات</h3>
+<div class="r"><span>مشتريات نقاط البيع (POS) عبر عُمان نت (Oman Net)</span><b>18 يوماً</b></div>
+<div class="r"><span>مشتريات فيزا (Visa purchase)</span><b>من 30 إلى 100 يوم</b></div></div>
+<div class="card in"><h3>التحويلات</h3>
+<div class="r"><span>التحويل الفاشل (Transfer failed)</span><b>يومان</b></div>
+<div class="r"><span>التحويل الناجح (Transfer successful)</span><b>18 يوماً</b></div>
+<div class="r"><span>التحويل البنكي المحلي (Local bank transfer)</span><b>30 يوماً</b></div></div>
+<div class="card in"><h3>أجهزة الصراف (ATM / CDM)</h3>
+<div class="r"><span>أجهزة ATM وCDM التابعة للبنك</span><b>3 أيام عمل</b></div>
+<div class="r"><span>جهاز ATM خارج البنك (Out ATM)</span><b>14 يوماً</b></div>
+<div class="r"><span>ATM دولي (International)</span><b>من 30 إلى 100 يوم</b></div></div>
+<div class="card in"><h3>أخرى</h3>
+<div class="r"><span>NOC والمبالغ المستحقة (NOC and outstanding)</span><b>5 أيام</b></div>
+<div class="r"><span>أي معاملة على بطاقة الائتمان</span><b>من 30 إلى 100 يوم</b></div></div>
+<button class="o np" onclick="go('sx')">رجوع</button></div>
+
+<div class="s" id="srt"><div id="rtc"></div></div>
+
+<div class="s" id="sbr"><div class="card res"><h3>الفروع</h3><div class="tb"><table><tr><th>القسم</th><th>الفرع</th><th>الموقع</th></tr><tr><td>فروع التجاري</td><td>الفرع الرئيسي</td><td>الوطية</td></tr><tr><td>فروع الإسلامي</td><td>الفرع الرئيسي</td><td>الوطية</td></tr></table></div></div></div>
+
+<div class="s" id="smc"><div class="card res"><h3>موقع اجهزة الخدمات الذاتية </h3><div class="tb"><table><tr><th>الاجهزة الخدمات</th><th>الموقع</th></tr><tr><td>ماكينة الإسلامي</td><td>الفرع الرئيسي - الوطية</td></tr><tr><td rowspan="15">ماكينة التجاري</td><td>الفرع الرئيسي - الوطية</td></tr><tr><td>المكتب الرئيسي (Head Office)</td></tr><tr><td>فرع مدينة قابوس 1 (Madinat Qaboos branch 1)</td></tr><tr><td>فرع مدينة قابوس 2 (Madinat Qaboos branch 2)</td></tr><tr><td>كشك مول عُمان (Mall Of Oman Kiosk)</td></tr><tr><td>فرع الموج (Al Mouj Branch)</td></tr><tr><td>فرع الخوض (Al Khoud Branch)</td></tr><tr><td>فرع صحار (Sohar Branch)</td></tr><tr><td>فرع بركاء (Barka branch)</td></tr><tr><td>فرع 18 نوفمبر (Nov 18 branch)</td></tr><tr><td>فرع العامرات (AlAmerat branch)</td></tr><tr><td>فرع الرسيل (Rusayl branch)</td></tr><tr><td>فرع الغبرة (AlGhubra branch)</td></tr><tr><td>فرع السعادة (AlSaada branch)</td></tr><tr><td>فرع المبيلة (Mabella branch)</td></tr></table></div></div></div>
+
+<div class="s" id="sck">
+<div class="card res"><h3>الشيكات المودعة</h3>
+<div class="r"><span>الإسلامي والتجاري</span><b>تُودع في ماكينة تابعة لكل منهما</b></div>
+<div class="r hl"><span>الإيداع قبل الساعة 11 صباحاً</span><b>تُودع في نفس اليوم</b></div>
+<div class="r hl"><span>الإيداع بعد الساعة 11 صباحاً</span><b>تُودع في اليوم التالي</b></div></div>
+<div class="card in"><h3>شيكات البنوك الأخرى</h3>
+<div class="r"><span>مدة الإيداع</span><b>من يوم إلى يومي عمل</b></div></div>
+<div class="card in"><h3>طباعة الشيكات</h3>
+<div class="r"><span>تتم الطباعة عن طريق</span><b>الفرع أو ماكينة الخدمات الذاتية</b></div></div>
+<button class="o np" onclick="go('sx')">رجوع</button></div>
+
+<div class="s mid" id="si"><div class="card">
+<button onclick="go('sip')">حساب القروض</button>
+<button onclick="go('sic')">بطاقات كريدت كارد</button>
+<button class="o" onclick="go('s1')">رجوع</button></div></div>
+
+<div class="s mid" id="sip"><div class="card"><div class="pending">قيد الإجراء</div><button class="o" onclick="go('si')">رجوع</button></div></div>
+
+<div class="s mid" id="sic"><div class="card"><h3>بطاقات كريدت كارد - الإسلامي</h3>
+<button onclick="go('sics')">عن طريق راتب العميل</button>
+<button onclick="go('sicd')">عن طريق وديعة مبلغ</button>
+<button onclick="fixedCard()">عن طريق وديعة ثابتة</button>
+<button onclick="allCards()">جميع بطاقات الكريدت كارد</button>
+<button class="o" onclick="go('si')">رجوع</button></div></div>
+
+<div class="s mid" id="sics"><div class="card"><h3>بالراتب</h3>
+<label>راتب العميل (ر.ع)</label><input id="ccs" type="number" inputmode="decimal">
+<div id="cer" class="warn" style="display:none"></div>
+<button onclick="showCard()">عرض البطاقة المستحقة</button>
+<button class="o" onclick="go('sic')">رجوع</button></div></div>
+
+<div class="s mid" id="sicd"><div class="card"><h3>بوديعة مبلغ</h3>
+<label>مبلغ الوديعة (ر.ع) — الحد الأدنى 400</label><input id="ccd" type="number" inputmode="decimal">
+<div id="cerd" class="warn" style="display:none"></div>
+<button onclick="depCard('d')">عرض البطاقة المستحقة</button>
+<button class="o" onclick="go('sic')">رجوع</button></div></div>
+
+<div class="s" id="sir"><div id="cout"></div>
+<button class="np" onclick="window.print()">طباعة</button>
+<button class="o np" onclick="go('sic')">رجوع</button></div>
+
+<div class="s mid" id="scc"><div class="card"><h3>بطاقات كريدت كارد - التجاري</h3>
+<button onclick="go('sccs')">عن طريق راتب العميل</button>
+<button onclick="go('sccp')">عن طريق وديعة مبلغ</button>
+<button onclick="go('sccp')">عن طريق وديعة ثابتة</button>
+<button onclick="allCardsC()">جميع بطاقات الكريدت كارد</button>
+<button class="o" onclick="go('s2')">رجوع</button></div></div>
+
+<div class="s mid" id="sccs"><div class="card"><h3>بالراتب - التجاري</h3>
+<label>راتب العميل (ر.ع)</label><input id="ccsc" type="number" inputmode="decimal">
+<div id="cerc" class="warn" style="display:none"></div>
+<button onclick="showCardC()">عرض البطاقة المستحقة</button>
+<button class="o" onclick="go('scc')">رجوع</button></div></div>
+
+<div class="s" id="sirc"><div id="coutc"></div>
+<button class="np" onclick="window.print()">طباعة</button>
+<button class="o np" onclick="go('scc')">رجوع</button></div>
+
+<div class="s mid" id="sccp"><div class="card"><div class="pending">قيد الإجراء</div><button class="o" onclick="go('scc')">رجوع</button></div></div>
+
+<div class="s mid" id="s2"><div class="card">
+<button onclick="go('sg')">حساب القروض</button>
+<button onclick="go('scc')">بطاقات كريدت كارد</button>
+<button class="o" onclick="go('s1')">رجوع</button></div></div>
+
+<div class="s mid" id="sg"><div class="card"><h3>جهة العمل</h3>
+<button onclick="setSec('جهة حكومية')">جهة حكومية</button>
+<button onclick="setSec('جهة خاصة')">جهة خاصة</button>
+<button onclick="showRates()">النسب بشكل عام</button>
+<button class="o" onclick="go('s2')">رجوع</button></div></div>
+
+<div class="s mid" id="s3"><div class="card">
+<button onclick="setTR(true)">تحويل راتب</button>
+<button onclick="setTR(false)">بدون تحويل راتب</button>
+<button class="o" onclick="go('sg')">رجوع</button></div></div>
+
+<div class="s" id="s4"><div class="card">
+<label>اسم العميل (اختياري)</label><input id="nm">
+<label>الراتب الشهري (ر.ع) — يُحتسب آخر 3 رواتب بنفس القيمة</label><input id="sal" type="number" inputmode="decimal">
+<label>سنة الميلاد</label><input id="by" type="number" inputmode="numeric" placeholder="1990">
+<label>الأقساط / الالتزامات الشهرية (ر.ع) — اتركه فارغاً إن لم يوجد</label><input id="ob" type="number" inputmode="decimal">
+<label>مبلغ القرض الذي يريده العميل (ر.ع) — اتركه فارغاً لاحتساب أقصى مبلغ مستحق</label><input id="am" type="number" inputmode="decimal">
+<label>مدة القرض المطلوبة بالسنوات (اختياري — إن تُركت فارغة تُحتسب أقصى مدة مسموحة)</label><input id="tm" type="number" inputmode="decimal">
+<div id="trn" style="font-weight:bold;color:var(--pr);margin-top:10px"></div>
+<label id="tpl">نوع القرض (أو اختر حسبة شاملة للمقارنة بين القروض)</label>
+<select id="tp"><option value="p">شخصي (حتى 10 سنوات)</option><option value="h">سكني (حتى 25 سنة)</option><option value="c">سيارة (حتى 10 سنوات)</option><option value="all">حسبة شاملة (شخصي + سكني + سيارة)</option></select>
+<div id="er" class="warn" style="display:none"></div>
+<button onclick="calc()">احسب</button>
+<button class="o" onclick="go('s3')">رجوع</button></div></div>
+
+<div class="s" id="s5"><div id="out"></div>
+<button class="np" onclick="window.print()">طباعة كامل التفاصيل</button>
+<button class="o np" onclick="go('s4')">تعديل البيانات</button></div>
+
+<div class="foot">النسخة التجريبية </div>
+<script>
+const T={p:{n:'شخصي',y:10,d:.5},h:{n:'سكني',y:25,d:.6},c:{n:'سيارة',y:10,d:.5}};
+const f=x=>x.toLocaleString('en-US',{minimumFractionDigits:3,maximumFractionDigits:3});
+const SC={s2:'التجاري',sg:'التجاري',s3:'التجاري',s4:'التجاري',s5:'التجاري',srt:'التجاري',scc:'التجاري',sccs:'التجاري',sccp:'التجاري',sirc:'التجاري',si:'الإسلامي',sip:'الإسلامي',sic:'الإسلامي',sics:'الإسلامي',sicd:'الإسلامي',sir:'الإسلامي',sx:'تفاصيل ورسوم أخرى',sck:'تفاصيل ورسوم أخرى',spr:'تفاصيل ورسوم أخرى',sbr:'تفاصيل ورسوم أخرى',smc:'تفاصيل ورسوم أخرى'};
+let CUR='s1',HIST=[],GB=0;
+function go(i){if(i==='s1'){HIST=[];const q=document.getElementById('sq');if(q&&q.value){q.value='';srch()}}else if(!GB&&i!==CUR)HIST.push(CUR);CUR=i;document.querySelectorAll('.s').forEach(e=>e.classList.remove('on'));document.getElementById(i).classList.add('on');document.getElementById('bk').style.display=i==='s1'?'none':'flex';const tt=document.getElementById('ttl');if(tt)tt.textContent='الخدمات البنكية'+(SC[i]?' ('+SC[i]+')':'');scrollTo(0,0)}
+function goBack(){GB=1;go(HIST.pop()||'s1');GB=0}
+const pv=(p,r,n)=>{r/=1200;return r?p*(1-Math.pow(1+r,-n))/r:p*n};
+const pm=(P,r,n)=>{r/=1200;return r?P*r/(1-Math.pow(1+r,-n)):P/n};
+let TR=true;const TPH=document.getElementById('tp').innerHTML;
+function setTR(v){TR=v;const t=document.getElementById('tp');
+ t.innerHTML=v?TPH:'<option value="p">شخصي (حتى 10 سنوات)</option><option value="c">سيارة (حتى 10 سنوات)</option>';t.value='p';
+ document.getElementById('trn').textContent=v?'':'بدون تحويل راتب — قرض شخصي أو سيارة';
+ document.getElementById('tpl').textContent=v?'نوع القرض (أو اختر حسبة شاملة للمقارنة بين القروض)':'نوع القرض';
+ go('s4')}
+function rt(s,k,n){
+ if(k=='c'){
+  if(!TR){const x=s<1000?5.99:s<2500?5.75:5.50;return [x,x,12,null]}
+  if(SEC=='جهة حكومية'){const x=n==12?3.49:s<1000?5.49:s<2500?4.99:4.75;return [x,x,12,null]}
+ }
+ if(k=='h'&&TR&&SEC=='جهة حكومية'){const a=[[5.99,4.99,5.25],[5.50,4.47,4.75],[5.16,4.25,4.50],[4.92,4.00,4.25]][s<700?0:s<1500?1:s<2500?2:3];return [a[0],a[1],36,a[2]]}
+ if(k=='h'&&TR&&SEC=='جهة خاصة'){const i=s<700?0:s<1500?1:s<2500?2:3,
+  H=n<=180?[[5.99,5.19,5.50],[5.75,4.54,5.00],[5.40,4.35,4.75],[4.88,4.25,4.50]]:
+    n<=240?[[5.99,5.31,5.50],[5.95,4.64,5.00],[5.50,4.46,4.75],[5.00,4.30,4.50]]:
+    [[5.99,5.36,5.50],[5.99,4.74,5.00],[5.75,4.48,4.75],[5.00,4.36,4.50]],a=H[i];return [a[0],a[1],36,a[2]]}
+ if(k=='p'&&!TR){const i=s<700?0:s<1500?1:s<2500?2:3,a=[[5.99,5.57,5.75],[5.99,4.82,5.25],[5.99,4.44,5.00],[5.50,4.31,4.75]][i];return [a[0],a[1],24,a[2]]}
+ if(k=='p'&&SEC){const i=s<700?0:s<1500?1:s<2500?2:3,
+  P=[[5.99,5.20,5.50],[5.99,4.44,5.00],[5.99,4.07,4.75],[5.35,4.01,4.50]],
+  G=[[5.80,4.91,5.25],[5.60,4.25,4.75],[5.25,4.06,4.50],[4.60,4.01,4.25]],a=(SEC=='جهة حكومية'?G:P)[i];return [a[0],a[1],24,a[2]]}
+ const o=rates(s);return [o[0],o[1],12,null]}
+function fcf(r1,r2,n,w){
+ const i1=r1/1200,i2=r2/1200,m=Math.min(n,w),gm=Math.pow(1+i1,m),sm=i1?(gm-1)/i1:m;
+ if(n<=w)return gm/sm;
+ const a2=i2?(1-Math.pow(1+i2,-(n-w)))/i2:n-w;return gm/(sm+a2)}
+function rates(s){return s<500?[5.99,4.79]:s<1000?[5.5,4.2]:[4,4]}
+const L1=w=>w==36?'أول 3 سنوات':w==24?'أول سنتين':'السنة الأولى',L2=w=>w==36?'من السنة الرابعة':w==24?'من السنة الثالثة':'بعد السنة الأولى';
+function er(m){const e=document.getElementById('er');e.textContent=m;e.style.display='block'}
+function calc(){
+ document.getElementById('er').style.display='none';
+ const s=+sal.value,b=+by.value,o=+ob.value||0,t=T[tp.value],Y=new Date().getFullYear();
+ if(!(s>0))return er('أدخل الراتب');
+ if(!(b>1900&&b<Y))return er('أدخل سنة ميلاد صحيحة');
+ const age=Y-b,left=65-age;
+ if(left<=0)return er('لا يحق للعميل الحصول على قرض بسبب العمر.\n\nعمر العميل '+age+' سنة (سنة الميلاد '+b+')، والحد الأقصى للعمر عند آخر قسط 65 سنة، فلا توجد مدة متبقية للتمويل.');
+ if(tp.value==='all'){
+  const rq0=+tm.value;
+  if(rq0<0||(rq0&&rq0<1))return er('أدخل مدة صحيحة (سنة واحدة على الأقل)');
+  const D=new Date(),cols=['p','h','c'].map(k=>{
+   const u=T[k],my=Math.min(u.y,left),y=rq0?Math.min(rq0,my):my,n=Math.round(y*12),av=s*u.d-o;
+   const [q1,q2,w,avg]=rt(s,k,n),fc=fcf(q1,q2,n,w);
+   const mp=av>0?Math.floor(av/fc):0,pm_=mp*fc;
+   return {u,q1,q2,w,avg,y,n,av,mp,pm_,ti:pm_*n-mp,tot:pm_*n,dd:new Date(D.getFullYear(),D.getMonth()+n+1,0).toLocaleDateString('en-GB')};
+  });
+  const row=(l,fn,h)=>`<tr${h?' class="'+h+'"':''}><th style="background:var(--bg);color:var(--tx)">${l}</th>${cols.map(c=>`<td>${fn(c)}</td>`).join('')}</tr>`;
+  out.innerHTML=`<div class="card in"><h3>البيانات المدخلة</h3>${nm.value?'<div class="r"><span>اسم العميل</span><b>'+nm.value+'</b></div>':''}
+  <div class="r"><span>جهة العمل</span><b>${SEC}</b></div>
+  <div class="r"><span>الراتب (آخر 3 رواتب)</span><b>${f(s)} ر.ع</b></div><div class="r"><span>سنة الميلاد / العمر</span><b>${b} / ${age} سنة</b></div>
+  <div class="r"><span>الالتزامات الحالية</span><b>${f(o)} ر.ع</b></div><div class="r"><span>نوع الحسبة</span><b>شاملة</b></div>${rq0?'<div class="r"><span>المدة المطلوبة</span><b>'+rq0+' سنة</b></div>':''}</div>
+  <div class="card res"><h3>نتائج الحسبة الشاملة</h3>  <div class="tb"><table><tr><th></th>${cols.map(c=>'<th>'+c.u.n+'</th>').join('')}</tr>
+  ${row('الفترة الأولى للفائدة',c=>L1(c.w))}${row('نسبة الفائدة - الفترة الأولى',c=>c.q1+'%','em')}${row('نسبة الفائدة - بعد الفترة الأولى',c=>c.q2+'%','em')}${row('متوسط الفائدة',c=>c.avg?c.avg+'%':'-')}${row('نسبة الاستقطاع الأساسية',c=>c.u.d*100+'%')}${row('نسبة الاستقطاع الفعلية',c=>((c.pm_+o)/s*100).toFixed(2)+'%','hl')}${row('الحد الأقصى للقسط',c=>f(Math.max(c.av,0)))}${row('المدة (سنة)',c=>c.y)}
+  ${row('أقصى مبلغ مؤهل',c=>f(c.mp))}${row('القسط الشهري الثابت',c=>f(c.pm_),'em')}${row('إجمالي الفوائد',c=>f(c.ti))}${row('إجمالي المسدد',c=>f(c.tot))}${row('آخر استحقاق',c=>c.dd)}</table></div>
+  <div class="warn">${rq0?cols.filter(c=>c.y<rq0).map(c=>'<br>• قرض '+c.u.n+': المدة المطلوبة '+rq0+' سنة غير مسموحة، وتم احتسابه '+c.y+' سنة ('+(left<c.u.y?'بسبب العمر: 65 − '+age+' = '+left+' سنة متبقية':'الحد الأقصى للمنتج '+c.u.y+' سنة')+').').join('')+'<br>':''}المبالغ بالريال العماني. كل قرض محسوب على حدة بنفس القدرة الشهرية، فلا يمكن الجمع بين أكثر من قرض بكامل المبالغ. ولا يُعتمد مبلغ مطلوب في الحسبة الشاملة.</div></div>`;
+  return go('s5');
+ }
+ const maxY=Math.min(t.y,left),rq=+tm.value;
+ if(rq<0||(rq&&rq<1))return er('أدخل مدة صحيحة (سنة واحدة على الأقل)');
+ if(rq>maxY)return er('لا يحق للعميل الحصول على قرض '+t.n+' لمدة '+rq+' سنة.\n\nالسبب: '+(left<t.y?'بسبب العمر. عمر العميل '+age+' سنة (سنة الميلاد '+b+')، والحد الأقصى لعمر العميل عند آخر قسط هو 65 سنة، فالمتبقي '+left+' سنة (65 − '+age+' = '+left+'). ومدة القرض '+t.n+' المسموحة كحد أقصى '+t.y+' سنة، فتُحتسب الأقل بينهما.':'الحد الأقصى لمدة القرض '+t.n+' هو '+t.y+' سنة.')+'\n\nالمدة المسموحة للعميل: حتى '+maxY+' سنة.');
+ const yrs=rq||maxY,n=Math.round(yrs*12),avail=s*t.d-o;
+ if(avail<=0)return er('الالتزامات الحالية تستهلك كامل نسبة الاستقطاع المسموحة، لا يمكن منح قرض.');
+ const [r1,r2,SW,avgR]=rt(s,tp.value,n),fcv=fcf(r1,r2,n,SW),pay=P=>P*fcv,maxP=Math.floor(avail/fcv),aq=+am.value,P=aq>0?aq:maxP;
+ if(!(P>0))return er('لا يوجد مبلغ قرض مؤهل بناءً على البيانات المدخلة.');
+ const p1=pay(P);
+ if(p1>avail+1e-9)return er('المبلغ المطلوب ('+f(P)+' ر.ع) يتجاوز قدرة العميل. القسط سيكون '+f(p1)+' ر.ع والمسموح '+f(avail)+' ر.ع. أقصى مبلغ يمكن منحه: '+f(maxP)+' ر.ع لمدة '+yrs+' سنة.');
+ let bal=P,rows=[],d=new Date(),ti=0,tp2=0;
+ for(let k=1;k<=n;k++){
+  const r=k<=SW?r1:r2,i=bal*r/1200,pr=p1-i;bal=Math.max(0,bal-pr);ti+=i;
+  const dt=new Date(d.getFullYear(),d.getMonth()+k+1,0);
+  rows.push(`<tr><td>${k}</td><td>${dt.toLocaleDateString('en-GB')}</td><td>${f(p1)}</td><td>${f(pr)}</td><td>${f(i)}</td><td>${f(bal)}</td></tr>`);tp2+=p1;
+ }
+ let note='';
+ if(maxY<t.y)note=`<div class="warn">بسبب العمر (${age} سنة) تم تقليص مدة القرض ${t.n} من ${t.y} إلى ${maxY} سنة ليكون الاستحقاق قبل بلوغ 65 سنة.</div>`;
+ const R=(a,v,h)=>`<div class="r${h?' hl':''}"><span>${a}</span><b>${v}</b></div>`;
+ out.innerHTML=`<div class="card in"><h3>البيانات المدخلة</h3>${nm.value?R('اسم العميل',nm.value):''}
+ ${R('تحويل الراتب',TR?'مع تحويل راتب':'بدون تحويل راتب')}${R('جهة العمل',SEC)}${R('الراتب (آخر 3 رواتب)',f(s)+' ر.ع')}${R('سنة الميلاد / العمر',b+' / '+age+' سنة')}${R('الالتزامات الحالية',f(o)+' ر.ع')}
+ ${R('نوع القرض',t.n)}${R(aq>0?'مبلغ القرض المطلوب':'مبلغ القرض (أقصى مبلغ مؤهل)',f(P)+' ر.ع')}${R('المدة',yrs+' سنة ('+n+' شهر)'+(rq?' - حسب طلب العميل':''))}</div>
+ <div class="card res"><h3>نتائج الحساب</h3>
+ ${R('نسبة الاستقطاع الأساسية',t.d*100+'%')}${R('نسبة الاستقطاع الفعلية (القسط + الالتزامات)',((p1+o)/s*100).toFixed(2)+'%',1)}${R('الحد الأقصى للقسط',f(avail)+' ر.ع')}
+ ${r1==r2?R('نسبة الفائدة (ثابتة طوال المدة)',r1+'%'):R('نسبة الفائدة ('+L1(SW)+')',r1+'%')+R('نسبة الفائدة ('+L2(SW)+')',r2+'%')}${avgR?R('متوسط الفائدة',avgR+'%'):''}
+ ${R('أقصى مبلغ مؤهل',f(maxP)+' ر.ع')}${R('القسط الشهري الثابت',f(p1)+' ر.ع',1)}
+ ${R('إجمالي الفوائد',f(ti)+' ر.ع')}${R('إجمالي المسدد',f(tp2)+' ر.ع')}
+ ${R('تاريخ آخر استحقاق',new Date(d.getFullYear(),d.getMonth()+n+1,0).toLocaleDateString('en-GB'))}${note}</div>
+ <div class="card"><h3>جدول السداد</h3><div class="tb"><table><tr><th>الشهر</th><th>الاستحقاق</th><th>القسط</th><th>الأصل</th><th>الفائدة</th><th>الرصيد</th></tr>${rows.join('')}</table></div></div>`;
+ go('s5');
+}
+
+const CM=['القبول عالمياً','شريحة EMV المتطورة وخدمة Verified by Visa (VBV) للمعاملات عبر الإنترنت','كشف حساب شهري','بطاقات إضافية للعائلة','حماية من فقدان أو سرقة البطاقة','صفر مسؤولية عن البطاقة المفقودة','خدمة عملاء على مدار الساعة طوال أيام الأسبوع (24/7)'];
+const AD='برنامج خصومات المطاعم في المطارات (Dragon Pass)',TI='تأمين سفر مجاني عند شراء تذاكر الطيران بالبطاقة';
+const CC={
+g:{n:'Gold',sr:'320 - 999',seg:'عامة (Mass)',mul:'2 × الراتب',lr:'250 - 2,999',cw:15,cb:'لا يوجد',mf:10,an:30,sp:15,b:['نقطة لؤلؤ واحدة لكل ريال يُنفق',...CM,'سحب نقدي حتى 15% من الحد الائتماني']},
+p:{n:'Platinum AlMajid',sr:'1,000 - 3,499',seg:'عامة (Mass)',mul:'3 × الراتب',lr:'1,500 - 9,999',cw:20,cb:'لا يوجد',mf:25,an:50,sp:25,b:[...CM,'دخول إلى 25 صالة مطار حول العالم',AD,'سحب نقدي حتى 20% من الحد الائتماني']},
+s:{n:'AlShumookh Premium Signature',sr:'3,500 - 4,999',seg:'مميزة (Premium)',mul:'3 × الراتب',lr:'من 3,500 كحد أدنى، والحد الأعلى حسب نسبة الاستقطاع أو الهامش النقدي',cw:25,cb:'1%',mf:70,an:75,sp:35,b:['6 نقاط لؤلؤ لكل 3 ريالات تُنفق',TI,...CM,'دخول إلى 1,000 صالة حول العالم 12 مرة في السنة','خدمة سائق خاص (Chauffeur)','خدمة كونسيرج (Concierge)','تغطية تأمين السفر','ضمان ممتد',AD,'سحب نقدي حتى 25% من الحد الائتماني']},
+i:{n:'AlShumookh Private Infinite',sr:'5,000 فأكثر',seg:'خاصة (Private)',mul:'بالدعوة فقط',lr:'من 5,000 كحد أدنى، والحد الأعلى حسب نسبة الاستقطاع أو الهامش النقدي',cw:30,cb:'1%',mf:75,an:100,sp:50,b:['8 نقاط لؤلؤ لكل 3 ريالات تُنفق',TI,...CM,'دخول غير محدود إلى 1,000 صالة حول العالم مع ضيف','خدمة سائق خاص (Chauffeur)','خدمة كونسيرج (Concierge)','تغطية تأمين السفر','حماية المشتريات','ضمان ممتد','سحب نقدي حتى 30% من الحد الائتماني']}};
+function bad(id,m){const e=document.getElementById(id);e.textContent=m;e.style.display='block'}
+function renderCard(k,lim,lt,inp,sal){
+ const n0=x=>Math.round(x).toLocaleString('en-US'),c=CC[k];
+ const R=(a,v,h)=>`<div class="r${h?' hl':''}"><span>${a}</span><b>${v}</b></div>`;
+ cout.innerHTML=`<div class="card in"><h3>البيانات المدخلة</h3>${inp}</div>
+ <div class="card res"><h3>البطاقة المستحقة</h3>${R('البطاقة',c.n,1)}${R('الشريحة',c.seg)}${sal?R('مضاعف الراتب',c.mul):''}
+ ${R('نطاق الحد الائتماني (ر.ع)',c.lr)}${sal==2?R('السحب النقدي',c.cw+'% من الحد الائتماني'):R(sal?'الحد الائتماني المتوقع':'الحد الائتماني (الوديعة × 85%)',n0(lim)+' ر.ع'+lt)+R('السحب النقدي ('+c.cw+'%)',n0(lim*c.cw/100)+' ر.ع')}
+ ${R('الكاش باك',c.cb)}${k=='i'?'<div class="warn">هذه البطاقة بالدعوة فقط.</div>':''}</div>
+ <div class="card"><h3>الرسوم</h3>${R('الرسوم الشهرية',c.mf+' ر.ع')}${R('رسوم الإصدار (للأساسية والإضافية)','12 ر.ع')}${R('الرسوم السنوية - البطاقة الأساسية',c.an+' ر.ع')}${R('الرسوم السنوية - البطاقة الإضافية (من البطاقة الثانية)',c.sp+' ر.ع')}</div>
+ <div class="card"><h3>مميزات البطاقة</h3><ul style="padding-inline-start:20px;line-height:2">${c.b.map(x=>'<li>'+x+'</li>').join('')}</ul></div>`;
+ go('sir');
+}
+function showCard(){
+ document.getElementById('cer').style.display='none';
+ const sl=+ccs.value,cl=(x,a,b)=>Math.min(b,Math.max(a,x));
+ if(!(sl>0))return bad('cer','أدخل راتب العميل');
+ if(sl<320)return bad('cer','لا يحق للعميل الحصول على بطاقة. الحد الأدنى للراتب في الجدول هو 320 ر.ع، وراتب العميل '+f(sl)+' ر.ع.');
+ const k=sl<1000?'g':sl<3500?'p':sl<5000?'s':'i';
+ const lim=k=='g'?cl(sl*2,250,2999):k=='p'?cl(sl*3,1500,9999):k=='s'?Math.max(sl*3,3500):5000;
+ const lt=k=='s'?' (تقديري، والحد النهائي حسب نسبة الاستقطاع أو الهامش النقدي)':k=='i'?' (حد أدنى، والحد النهائي حسب نسبة الاستقطاع أو الهامش النقدي)':'';
+ renderCard(k,lim,lt,`<div class="r"><span>طريقة الاستحقاق</span><b>راتب العميل</b></div><div class="r"><span>راتب العميل</span><b>${f(sl)} ر.ع</b></div>`,1);
+}
+window.addEventListener('beforeprint',()=>document.querySelectorAll('#cout details,#coutc details,#rtc details').forEach(d=>d.open=true));
+function allCards(){
+ const ks=['g','p','s','i'],R=(a,v)=>`<div class="r"><span>${a}</span><b>${v}</b></div>`;
+ cout.innerHTML=`<div class="card res"><h3>جميع بطاقات الكريدت كارد - الإسلامي</h3><div class="tb"><table><tr><th>البطاقة</th><th>الراتب (ر.ع)</th><th>مضاعف الراتب</th><th>السحب النقدي</th><th>الكاش باك</th></tr>
+ ${ks.map(k=>{const c=CC[k];return `<tr><td>${c.n}</td><td>${c.sr}</td><td>${c.mul}</td><td>${c.cw}%</td><td>${c.cb}</td></tr>`}).join('')}</table></div><div class="warn">ملاحظة: لا يوجد كاش باك لبطاقتي Platinum AlMajid وGold، وكاش باك 1% فقط لبطاقات الشموخ.</div></div>`+
+ ks.map(k=>{const c=CC[k];return `<div class="card"><details><summary style="font-weight:bold;cursor:pointer;color:var(--pr)">${c.n}</summary>
+ ${R('الراتب (ر.ع)',c.sr)}${R('الشريحة',c.seg)}${R('مضاعف الراتب',c.mul)}${R('نطاق الحد الائتماني (ر.ع)',c.lr)}${R('السحب النقدي',c.cw+'% من الحد الائتماني')}
+ ${R('الرسوم الشهرية',c.mf+' ر.ع')}${R('رسوم الإصدار (للأساسية والإضافية)','12 ر.ع')}${R('الرسوم السنوية - الأساسية',c.an+' ر.ع')}${R('الرسوم السنوية - الإضافية (من الثانية)',c.sp+' ر.ع')}
+ ${R('الكاش باك',c.cb)}${k=='i'?'<div class="warn">هذه البطاقة بالدعوة فقط.</div>':''}
+ <h4>المميزات</h4><ul style="padding-inline-start:20px;line-height:2">${c.b.map(x=>'<li>'+x+'</li>').join('')}</ul></details></div>`}).join('');
+ go('sir');
+}
+
+const CT=[{n:'اختياري',lo:320,hi:1000,sr:'320 - 999',m:1,l1:250,l2:999,b:['كسب النقاط اللؤلؤية','مجانية في السنة الأولى','ميزة شريحة EMV المتقدمة وميزة "التحقق من فيزا" للمعاملات عبر الإنترنت','كشف الحساب الشهري','فترة سداد مجانية تصل إلى 45 يوماً على عملية الشراء','بطاقات إضافية للأسرة','حماية البطاقة المفقودة / المسروقة','عدم تحمل مسؤولية بطاقة الائتمان الضائعة','خط مساعدة العملاء متوفر على مدار الساعة طوال أيام الأسبوع','عرض فوكس سينما – خصم 50% على تذاكر الأفلام التي تم شراؤها عن طريق تطبيق السينما خلال الأسبوع','مزايا الأهلي']},
+{n:'الذهبية (جولد)',lo:320,hi:1000,sr:'320 - 999',m:3,l1:500,l2:2500},
+{n:'امتياز',lo:1000,hi:3500,sr:'1,000 - 3,499',m:4,l1:1000,l2:12500},
+{n:'النخبة سيغنتشر',lo:3500,hi:Infinity,sr:'3,500 فأكثر',m:5,l1:3500,l2:20000}];
+CT[1].b=CT[0].b.filter(x=>x!=='مجانية في السنة الأولى');
+CT[2].b=['كسب النقاط اللؤلؤية','مجانية في السنة الأولى','ميزة شريحة EMV المتقدمة وميزة "التحقق من فيزا" للمعاملات عبر الإنترنت','كشف الحساب الشهري','فترة سداد مجانية تصل إلى 45 يوماً على عملية الشراء','بطاقات إضافية للأسرة','حماية البطاقة المفقودة / المسروقة وعدم تحمل مسؤولية بطاقة الائتمان الضائعة','خط مساعدة العملاء متوفر على مدار الساعة طوال أيام الأسبوع','عرض فوكس سينما – خصم 50% على تذاكر الأفلام التي تم شراؤها عن طريق تطبيق السينما خلال الأسبوع','مزايا الأهلي','6 مرات دخول صالة مطار عن طريق Visa Airport Companion على 25 دولة. لمعلومات إضافية زيارة Visa Airport Companion','برنامج خصومات Dine & Fly على وجبات العشاء في المطار عن طريق Dragon Pass. يرجى تنزيل تطبيق Dragon Pass للحصول على هذه العروض الحصرية','خصومات مع Agoda. لمعلومات إضافية يرجى زيارة www.agoda.com/visamena'];
+CT[3].b=['كسب النقاط اللؤلؤية','تأمين السفر المجاني عند شراء تذاكر الطيران ببطاقتك','القبول في جميع أنحاء العالم','ميزة شريحة EMV المتقدمة وميزة "التحقق من فيزا" للمعاملات عبر الإنترنت','كشف الحساب الشهري','فترة سداد مجانية تصل إلى 45 يوماً على عملية الشراء','بطاقات إضافية للأسرة','حماية البطاقة المفقودة / المسروقة','عدم تحمل مسؤولية بطاقة الائتمان الضائعة','خط مساعدة العملاء متوفر على مدار الساعة طوال أيام الأسبوع'];
+CT[0].note='ملاحظة: بطاقة اختياري متاحة فقط للعملاء من عمر 18 إلى 25 سنة.';
+const bl=c=>c.b?`<div class="card"><h3>مميزات البطاقة</h3><ul style="padding-inline-start:20px;line-height:2">${c.b.map(x=>'<li>'+x+'</li>').join('')}</ul></div>`:'',bl2=c=>c.b?`<h4 style="margin:10px 0 4px">المميزات</h4><ul style="padding-inline-start:20px;line-height:2">${c.b.map(x=>'<li>'+x+'</li>').join('')}</ul>`:'';
+const n0c=x=>Math.round(x).toLocaleString('en-US');
+function showCardC(){
+ document.getElementById('cerc').style.display='none';
+ const sl=+ccsc.value;
+ if(!(sl>0))return bad('cerc','أدخل راتب العميل');
+ if(sl<320)return bad('cerc','لا يحق للعميل الحصول على بطاقة. الحد الأدنى للراتب 320 ر.ع، وراتب العميل '+f(sl)+' ر.ع.');
+ const el=CT.filter(c=>sl>=c.lo&&sl<c.hi),R=(a,v,h)=>`<div class="r${h?' hl':''}"><span>${a}</span><b>${v}</b></div>`;
+ coutc.innerHTML=`<div class="card in"><h3>البيانات المدخلة</h3>${R('طريقة الاستحقاق','راتب العميل')}${R('راتب العميل',f(sl)+' ر.ع')}</div>`+
+ (el.length>1?'<div class="warn">راتب العميل مؤهل لأحد البطاقتين التاليتين.</div>':'')+
+ el.map(c=>{const lim=Math.min(c.l2,Math.max(c.l1,c.m*sl));return `<div class="card res"><h3>البطاقة المستحقة</h3>${R('البطاقة',c.n,1)}${R('الراتب (ر.ع)',c.sr)}${R('تعادل',c.m+(c.m==1?' راتب':' رواتب'))}${R('نطاق الحد الائتماني (ر.ع)',n0c(c.l1)+' - '+n0c(c.l2))}${R('الحد الائتماني المتوقع',n0c(lim)+' ر.ع')}${c.note?'<div class="warn">'+c.note+'</div>':''}</div>${bl(c)}`}).join('');
+ go('sirc');
+}
+function allCardsC(){
+ coutc.innerHTML=`<div class="card res"><h3>جميع بطاقات الكريدت كارد - التجاري</h3><div class="tb"><table><tr><th>البطاقة</th><th>الراتب (ر.ع)</th><th>تعادل</th><th>نطاق الحد (ر.ع)</th></tr>
+ ${CT.map(c=>`<tr><td>${c.n}</td><td>${c.sr}</td><td>${c.m} ${c.m==1?'راتب':'رواتب'}</td><td>${n0c(c.l1)} - ${n0c(c.l2)}</td></tr>`).join('')}
+ <tr><td>النخبة إنفينيت إكسكلوسيف</td><td colspan="3">عن طريق الدعوة فقط من البنك</td></tr></table></div><div class="warn">${CT[0].note}</div></div>`+
+ CT.map(c=>`<div class="card"><details><summary style="font-weight:bold;cursor:pointer;color:var(--pr)">${c.n}</summary><div class="r"><span>الراتب (ر.ع)</span><b>${c.sr}</b></div><div class="r"><span>تعادل</span><b>${c.m} ${c.m==1?'راتب':'رواتب'}</b></div><div class="r"><span>نطاق الحد الائتماني (ر.ع)</span><b>${n0c(c.l1)} - ${n0c(c.l2)}</b></div>${c.note?'<div class="warn">'+c.note+'</div>':''}${bl2(c)}</details></div>`).join('')+
+ `<div class="card"><details><summary style="font-weight:bold;cursor:pointer;color:var(--pr)">النخبة إنفينيت إكسكلوسيف</summary><div class="warn">عن طريق الدعوة فقط من البنك.</div></details></div>`;
+ go('sirc');
+}
+function fixedCard(){
+ renderCard('p',0,'',`<div class="r"><span>طريقة الاستحقاق</span><b>وديعة ثابتة</b></div><div class="r"><span>الوديعة المطلوبة</span><b>10,000 ر.ع فأكثر</b></div>`,2);
+}
+function depCard(t){
+ document.getElementById('cer'+t).style.display='none';
+ const v=+document.getElementById('cc'+t).value;
+ if(!(v>0))return bad('cer'+t,'أدخل مبلغ الوديعة');
+ if(t=='f'){
+  if(v<10000)return bad('cerf','لا يحق للعميل الحصول على بطاقة بالوديعة الثابتة. الحد الأدنى للوديعة 10,000 ر.ع، والمبلغ المدخل '+f(v)+' ر.ع.');
+  return renderCard('p',0,'',`<div class="r"><span>طريقة الاستحقاق</span><b>وديعة ثابتة</b></div><div class="r"><span>مبلغ الوديعة</span><b>${f(v)} ر.ع</b></div>`,2);
+ }
+ if(v<400)return bad('cerd','لا يحق للعميل الحصول على بطاقة. الحد الأدنى للوديعة 400 ر.ع، والمبلغ المدخل '+f(v)+' ر.ع.');
+ const eq=v*0.85,cl=(x,a,b)=>Math.min(b,Math.max(a,x));
+ const k=eq<1000?'g':eq<3500?'p':eq<5000?'s':'i';
+ const lim=k=='g'?cl(eq*2,250,2999):k=='p'?cl(eq*3,1500,9999):k=='s'?Math.max(eq*3,3500):5000;
+ const lt=k=='s'?' (تقديري، والحد النهائي حسب نسبة الاستقطاع أو الهامش النقدي)':k=='i'?' (حد أدنى، والحد النهائي حسب نسبة الاستقطاع أو الهامش النقدي)':'';
+ renderCard(k,lim,lt,`<div class="r"><span>طريقة الاستحقاق</span><b>${t=='d'?'وديعة مبلغ':'وديعة ثابتة'}</b></div><div class="r"><span>مبلغ الوديعة</span><b>${f(v)} ر.ع</b></div><div class="r"><span>الناتج (الوديعة × 85%) — يُعامل كالراتب</span><b>${f(eq)} ر.ع</b></div>`,1);
+}
+let SEC='';function setSec(v){SEC=v;go('s3')}
+function chkPin(b){
+ const v=document.getElementById('pin').value;
+ if(v==='7755'){document.getElementById('lock').style.display='none';document.getElementById('app').style.display='block';scrollTo(0,0)}
+ else if(b||v.length>=4){document.getElementById('pe').textContent='الرمز غير صحيح';document.getElementById('pin').value=''}
+ else document.getElementById('pe').textContent='';
+}
+document.querySelectorAll('.s button').forEach(b=>{if(b.textContent.trim()==='رجوع')b.remove()});
+document.querySelectorAll('.s').forEach(e=>{const c=e.querySelector(':scope>.card');if(c&&!c.querySelector('input,select'))c.classList.add('menu')});
+document.querySelectorAll('.s').forEach(e=>{
+ if(e.id==='s1')return;
+ const b=document.createElement('button');b.className='hb np';b.innerHTML='<svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10"/></svg><span>الصفحة الرئيسية</span>';b.onclick=()=>go('s1');
+ const cs=e.querySelectorAll(':scope>.card');
+ e.appendChild(b);
+});
+const IC={moon:'<svg viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>',sun:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg>',globe:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>'};
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t);document.getElementById('tg').innerHTML=(t=='dark'?IC.sun:IC.moon)+'<span>'+(t=='dark'?'الوضع العادي':'الوضع الداكن')+'</span>'}
+function toggleTheme(){const t=document.documentElement.getAttribute('data-theme')=='dark'?'light':'dark';applyTheme(t);try{localStorage.setItem('theme',t)}catch(e){}}
+let TH='light';try{TH=localStorage.getItem('theme')||'light'}catch(e){}
+applyTheme(TH);
+
+const DICT=`الخدمات البنكية=Banking Services
+الوضع الداكن=Dark mode
+الوضع العادي=Normal mode
+أدخل رمز الدخول=Enter access code
+الرمز غير صحيح=Incorrect code
+دخول=Enter
+التجاري=Commercial
+الإسلامي=Islamic
+تفاصيل ورسوم أخرى=Other Details & Fees
+الشيكات=Cheques
+الفترة الزمنية لحل المشكلات=Issue Resolution Time
+رجوع=Back
+الصفحة الرئيسية=Home
+قيد الإجراء=In progress
+طباعة كامل التفاصيل=Print full details
+طباعة=Print
+مشتريات نقاط البيع (POS) عبر عُمان نت (Oman Net)=POS purchases via Oman Net
+مشتريات فيزا (Visa purchase)=Visa purchase
+التحويلات=Transfers
+التحويل الفاشل (Transfer failed)=Failed transfer
+التحويل الناجح (Transfer successful)=Successful transfer
+التحويل البنكي المحلي (Local bank transfer)=Local bank transfer
+أجهزة الصراف (ATM / CDM)=ATM / CDM machines
+أجهزة ATM وCDM التابعة للبنك=Bank's own ATM & CDM machines
+جهاز ATM خارج البنك (Out ATM)=Other bank's ATM
+ATM دولي (International)=International ATM
+NOC والمبالغ المستحقة (NOC and outstanding)=NOC & outstanding amounts
+أي معاملة على بطاقة الائتمان=Any credit card transaction
+أخرى=Other
+يومان=2 days
+أيام عمل=working days
+يوماً=days
+أيام=days
+يوم=days
+من=from
+إلى=to
+الشيكات المودعة=Deposited Cheques
+الإسلامي والتجاري=Islamic & Commercial
+تُودع في ماكينة تابعة لكل منهما=Deposited in each bank's own machine
+الإيداع قبل الساعة=Deposit before
+الإيداع بعد الساعة=Deposit after
+صباحاً=AM
+تُودع في نفس اليوم=Credited the same day
+تُودع في اليوم التالي=Credited the next day
+شيكات البنوك الأخرى=Other Banks' Cheques
+مدة الإيداع=Clearing time
+من يوم إلى يومي عمل=1 to 2 working days
+طباعة الشيكات=Cheque Printing
+تتم الطباعة عن طريق=Printing is done via
+الفرع أو ماكينة الخدمات الذاتية=Branch or self-service machine
+حساب القروض=Loan Calculator
+بطاقات كريدت كارد - الإسلامي=Credit Cards - Islamic
+بطاقات كريدت كارد - التجاري=Credit Cards - Commercial
+بطاقات كريدت كارد=Credit Cards
+عن طريق راتب العميل=By customer salary
+عن طريق وديعة مبلغ=By deposit amount
+عن طريق وديعة ثابتة=By fixed deposit
+جميع بطاقات الكريدت كارد - الإسلامي=All Credit Cards - Islamic
+جميع بطاقات الكريدت كارد - التجاري=All Credit Cards - Commercial
+جميع بطاقات الكريدت كارد=All credit cards
+بالراتب - التجاري=By salary - Commercial
+بالراتب=By salary
+بوديعة مبلغ=By deposit amount
+عرض البطاقة المستحقة=Show eligible card
+راتب العميل=Customer salary
+مبلغ الوديعة=Deposit amount
+الحد الأدنى=Minimum
+ر.ع=OMR
+فأكثر=and above
+جهة العمل=Employer type
+جهة حكومية=Government
+جهة خاصة=Private
+تحويل راتب=Salary transfer
+بدون تحويل راتب=Without salary transfer
+اسم العميل (اختياري)=Customer name (optional)
+الراتب الشهري=Monthly salary
+يُحتسب آخر=based on the last
+رواتب بنفس القيمة=salaries at the same value
+سنة الميلاد / العمر=Birth year / age
+سنة الميلاد=Year of birth
+الأقساط / الالتزامات الشهرية=Monthly installments / obligations
+اتركه فارغاً إن لم يوجد=leave empty if none
+مبلغ القرض الذي يريده العميل=Loan amount requested by the customer
+اتركه فارغاً لاحتساب أقصى مبلغ مستحق=leave empty to calculate the maximum eligible amount
+مدة القرض المطلوبة بالسنوات (اختياري — إن تُركت فارغة تُحتسب أقصى مدة مسموحة)=Requested loan term in years (optional — if empty, the maximum allowed term is used)
+نوع القرض=Loan type
+أو اختر حسبة شاملة للمقارنة بين القروض=or choose a comprehensive comparison
+شخصي=Personal
+سكني=Housing
+سيارة=Car
+حتى=up to
+سنوات=years
+سنة=years
+حسبة شاملة=Comprehensive calculation
+احسب=Calculate
+تعديل البيانات=Edit data
+قرض شخصي أو سيارة=personal or car loan
+أول سنتين=First 2 years
+أول 3 سنوات=First 3 years
+السنة الأولى=First year
+من السنة الرابعة=From the 4th year
+من السنة الثالثة=From the 3rd year
+بعد السنة الأولى=After the first year
+أدخل الراتب=Enter salary
+أدخل سنة ميلاد صحيحة=Enter a valid birth year
+أدخل مدة صحيحة=Enter a valid term
+سنة واحدة على الأقل=at least 1 year
+البيانات المدخلة=Entered Data
+الراتب=Salary
+آخر استحقاق=Last due date
+آخر=last
+رواتب=salaries
+الالتزامات الحالية=Current obligations
+نوع الحسبة=Calculation type
+شاملة=Comprehensive
+المدة المطلوبة=Requested term
+نتائج الحسبة الشاملة=Comprehensive Results
+الفترة الأولى للفائدة=First interest period
+نسبة الفائدة - الفترة الأولى=Interest rate - first period
+نسبة الفائدة - بعد الفترة الأولى=Interest rate - after first period
+نسبة الفائدة=Interest rate
+ثابتة طوال المدة=fixed for the whole term
+متوسط الفائدة=Average rate
+نسبة الاستقطاع الأساسية=Base deduction ratio
+نسبة الاستقطاع الفعلية=Effective deduction ratio
+القسط + الالتزامات=installment + obligations
+الحد الأقصى للقسط=Maximum installment
+المدة=Term
+أقصى مبلغ مؤهل=Maximum eligible amount
+القسط الشهري الثابت=Fixed monthly installment
+إجمالي الفوائد=Total interest
+إجمالي المسدد=Total repaid
+تاريخ آخر استحقاق=Last due date
+قرض=loan
+شهر=months
+حسب طلب العميل=as requested by the customer
+تحويل الراتب=Salary transfer
+مع تحويل راتب=With salary transfer
+مبلغ القرض المطلوب=Requested loan amount
+مبلغ القرض=Loan amount
+نتائج الحساب=Calculation Results
+جدول السداد=Repayment Schedule
+الشهر=Month
+الاستحقاق=Due date
+الأصل=Principal
+الفائدة=Interest
+الرصيد=Balance
+القسط=installment
+الالتزامات=obligations
+لا يحق للعميل الحصول على قرض بسبب العمر=The customer is not eligible for a loan due to age
+عمر العميل=Customer age
+، والحد الأقصى للعمر عند آخر قسط=, and the maximum age at the last installment is
+سنة، فلا توجد مدة متبقية للتمويل=years, so no financing term remains
+سنة غير مسموحة، وتم احتسابه=years is not allowed; calculated as
+بسبب العمر. عمر العميل=due to age. Customer age is
+بسبب العمر=due to age
+سنة متبقية=years remaining
+الحد الأقصى للمنتج=product maximum
+المبالغ بالريال العماني. كل قرض محسوب على حدة بنفس القدرة الشهرية، فلا يمكن الجمع بين أكثر من قرض بكامل المبالغ. ولا يُعتمد مبلغ مطلوب في الحسبة الشاملة=Amounts are in Omani Rial. Each loan is calculated separately using the same monthly capacity, so more than one loan cannot be combined at full amounts. A requested amount is not used in the comprehensive calculation.
+لا يحق للعميل الحصول على قرض=The customer is not eligible for a loan
+لمدة=for a term of
+السبب=Reason
+، والحد الأقصى لعمر العميل عند آخر قسط هو=, and the maximum customer age at the last installment is
+سنة، فالمتبقي=years, so the remainder is
+ومدة القرض=and the loan term
+المسموحة كحد أقصى=allowed maximum is
+سنة، فتُحتسب الأقل بينهما=years, so the lower of the two is used
+الحد الأقصى لمدة القرض=Maximum loan term
+هو=is
+المدة المسموحة للعميل: حتى=Allowed term for the customer: up to
+الالتزامات الحالية تستهلك كامل نسبة الاستقطاع المسموحة، لا يمكن منح قرض=Current obligations use the entire allowed deduction ratio; no loan can be granted
+لا يوجد مبلغ قرض مؤهل بناءً على البيانات المدخلة=No eligible loan amount based on the entered data
+المبلغ المطلوب=The requested amount
+يتجاوز قدرة العميل. القسط سيكون=exceeds the customer's capacity. The installment would be
+والمسموح=and the allowed is
+أقصى مبلغ يمكن منحه=Maximum amount that can be granted
+تم تقليص مدة القرض=The loan term was reduced
+سنة ليكون الاستحقاق قبل بلوغ=years so that maturity is before reaching age
+القبول عالمياً=Worldwide acceptance
+شريحة EMV المتطورة وخدمة Verified by Visa (VBV) للمعاملات عبر الإنترنت=Advanced EMV chip and Verified by Visa (VBV) for online transactions
+كشف حساب شهري=Monthly statement
+بطاقات إضافية للعائلة=Supplementary cards for family
+حماية من فقدان أو سرقة البطاقة=Lost/stolen card protection
+صفر مسؤولية عن البطاقة المفقودة=Zero liability for a lost card
+خدمة عملاء على مدار الساعة طوال أيام الأسبوع=Customer service round the clock all week
+برنامج خصومات المطاعم في المطارات=Airport dining discount program
+تأمين سفر مجاني عند شراء تذاكر الطيران بالبطاقة=Free travel insurance when buying flight tickets with the card
+عامة=General
+مميزة=Premium
+خاصة=Private
+نقطة لؤلؤ واحدة لكل ريال يُنفق=1 pearl point for every riyal spent
+نقاط لؤلؤ لكل=pearl points for every
+ريالات تُنفق=riyals spent
+سحب نقدي حتى=Cash withdrawal up to
+من الحد الائتماني=of the credit limit
+دخول إلى=Access to
+صالة مطار حول العالم=airport lounges worldwide
+صالة حول العالم مع ضيف=lounges worldwide with a guest
+صالة حول العالم=lounges worldwide
+مرة في السنة=times a year
+خدمة سائق خاص=Chauffeur service
+خدمة كونسيرج=Concierge service
+تغطية تأمين السفر=Travel insurance coverage
+ضمان ممتد=Extended warranty
+دخول غير محدود إلى=Unlimited access to
+حماية المشتريات=Purchase protection
+كحد أدنى، والحد الأعلى حسب نسبة الاستقطاع أو الهامش النقدي=minimum, with the maximum based on the deduction ratio or cash margin
+بالدعوة فقط=By invitation only
+البطاقة المستحقة=Eligible Card
+البطاقة=Card
+الشريحة=Segment
+مضاعف الراتب=Salary multiple
+نطاق الحد الائتماني=Credit limit range
+السحب النقدي=Cash withdrawal
+الحد الائتماني المتوقع=Expected credit limit
+الحد الائتماني=Credit limit
+الوديعة=Deposit
+هذه البطاقة بالدعوة فقط=This card is by invitation only
+الرسوم الشهرية=Monthly fee
+رسوم الإصدار=Issuance fee
+للأساسية والإضافية=for main and supplementary
+الرسوم السنوية - البطاقة الأساسية=Annual fee - main card
+الرسوم السنوية - البطاقة الإضافية=Annual fee - supplementary card
+الرسوم السنوية - الأساسية=Annual fee - main
+الرسوم السنوية - الإضافية=Annual fee - supplementary
+من البطاقة الثانية=from the 2nd card
+من الثانية=from the 2nd
+الرسوم=Fees
+مميزات البطاقة=Card Features
+المميزات=Features
+أدخل راتب العميل=Enter customer salary
+لا يحق للعميل الحصول على بطاقة. الحد الأدنى للراتب في الجدول هو=The customer is not eligible for a card. The minimum salary in the table is
+لا يحق للعميل الحصول على بطاقة. الحد الأدنى للراتب=The customer is not eligible for a card. The minimum salary is
+وراتب العميل=and the customer's salary is
+تقديري، والحد النهائي حسب نسبة الاستقطاع أو الهامش النقدي=estimated; the final limit depends on the deduction ratio or cash margin
+حد أدنى، والحد النهائي حسب نسبة الاستقطاع أو الهامش النقدي=minimum; the final limit depends on the deduction ratio or cash margin
+طريقة الاستحقاق=Eligibility method
+كسب النقاط اللؤلؤية=Earn pearl points
+مجانية في السنة الأولى=Free in the first year
+ميزة شريحة EMV المتقدمة وميزة "التحقق من فيزا" للمعاملات عبر الإنترنت=Advanced EMV chip and "Verified by Visa" for online transactions
+كشف الحساب الشهري=Monthly statement
+فترة سداد مجانية تصل إلى=Interest-free period up to
+يوماً على عملية الشراء=days on purchases
+بطاقات إضافية للأسرة=Supplementary cards for the family
+حماية البطاقة المفقودة / المسروقة وعدم تحمل مسؤولية بطاقة الائتمان الضائعة=Lost / stolen card protection and no liability for a lost credit card
+حماية البطاقة المفقودة / المسروقة=Lost / stolen card protection
+عدم تحمل مسؤولية بطاقة الائتمان الضائعة=No liability for a lost credit card
+خط مساعدة العملاء متوفر على مدار الساعة طوال أيام الأسبوع=Customer helpline available round the clock all week
+عرض فوكس سينما=Vox Cinemas offer
+خصم=discount
+على تذاكر الأفلام التي تم شراؤها عن طريق تطبيق السينما خلال الأسبوع=on movie tickets bought through the cinema app during the week
+مزايا الأهلي=Ahli benefits
+الذهبية (جولد)=Gold
+اختياري=Ikhtiyari
+امتياز=Imtiaz
+النخبة سيغنتشر=Elite Signature
+مرات دخول صالة مطار عن طريق=airport lounge visits via
+دولة. لمعلومات إضافية زيارة=countries. For more information visit
+على وجبات العشاء في المطار عن طريق=on dinner meals at the airport via
+برنامج خصومات=Discount program
+يرجى تنزيل تطبيق=Please download the app
+للحصول على هذه العروض الحصرية=to get these exclusive offers
+خصومات مع=Discounts with
+لمعلومات إضافية يرجى زيارة=For more information please visit
+تأمين السفر المجاني عند شراء تذاكر الطيران ببطاقتك=Free travel insurance when buying flight tickets with your card
+القبول في جميع أنحاء العالم=Accepted worldwide
+راتب العميل مؤهل لأحد البطاقتين التاليتين=The customer's salary qualifies for one of the following two cards
+تعادل=Equals
+راتب=salary
+نطاق الحد=Limit range
+النخبة إنفينيت إكسكلوسيف=Elite Infinite Exclusive
+عن طريق الدعوة فقط من البنك=By bank invitation only
+وديعة ثابتة=Fixed deposit
+وديعة مبلغ=Deposit amount
+الوديعة المطلوبة=Required deposit
+أدخل مبلغ الوديعة=Enter deposit amount
+لا يحق للعميل الحصول على بطاقة بالوديعة الثابتة. الحد الأدنى للوديعة=The customer is not eligible for a card by fixed deposit. The minimum deposit is
+لا يحق للعميل الحصول على بطاقة. الحد الأدنى للوديعة=The customer is not eligible for a card. The minimum deposit is
+والمبلغ المدخل=and the entered amount is
+الناتج=Result
+يُعامل كالراتب=treated as salary
+ملاحظة: بطاقة اختياري متاحة فقط للعملاء من عمر 18 إلى 25 سنة.=Note: the Ikhtiyari card is available only to customers aged 18 to 25.
+الكاش باك=Cashback
+لا يوجد=None
+ملاحظة: لا يوجد كاش باك لبطاقتي Platinum AlMajid وGold، وكاش باك 1% فقط لبطاقات الشموخ.=Note: There is no cashback on Platinum AlMajid and Gold cards; 1% cashback applies only to Al Shumookh cards.
+جميع الحقوق محفوظة=All rights reserved
+مرحباً بك في مركز المساعدة=Welcome to the Help Center
+لا توجد نتائج=No results
+كاش باك=cashback
+رسوم=fees
+النسب بشكل عام=General Rates
+الفروع=Branches
+مواقع ماكينات الخدمات الذاتية=Self-Service Machine Locations
+فروع التجاري=Commercial Branches
+فروع الإسلامي=Islamic Branches
+الفرع الرئيسي=Main Branch
+الوطية=Al Watiyah
+الفرع=Branch
+الموقع=Location
+القسم=Section
+الماكينة=Machine
+ماكينة الإسلامي=Islamic machine
+ماكينة التجاري=Commercial machine
+مواقع الماكينات=Machine locations
+الحالة=Status
+حكومية=Government
+حكومي=Government
+قطاع حكومي=Government sector
+قطاع خاص=Private sector
+حكومي أو خاص=Government or private
+قرض شخصي=Personal loan
+قرض سكني=Housing loan
+قرض سيارة=Car loan
+القرض السكني=housing loan
+أقل من=Less than
+أكثر من=more than
+النسبة=Rate
+المتوسط=Average
+غير متاح=Not available
+فقط=only
+لأي راتب والمدة سنة واحدة=For any salary with a 1-year term
+المكتب الرئيسي (Head Office)=Head Office
+فرع مدينة قابوس 1 (Madinat Qaboos branch 1)=Madinat Qaboos branch 1
+فرع مدينة قابوس 2 (Madinat Qaboos branch 2)=Madinat Qaboos branch 2
+كشك مول عُمان (Mall Of Oman Kiosk)=Mall Of Oman Kiosk
+فرع الموج (Al Mouj Branch)=Al Mouj Branch
+فرع الخوض (Al Khoud Branch)=Al Khoud Branch
+فرع صحار (Sohar Branch)=Sohar Branch
+فرع بركاء (Barka branch)=Barka branch
+فرع 18 نوفمبر (Nov 18 branch)=Nov 18 branch
+فرع العامرات (AlAmerat branch)=AlAmerat branch
+فرع الرسيل (Rusayl branch)=Rusayl branch
+فرع الغبرة (AlGhubra branch)=AlGhubra branch
+فرع السعادة (AlSaada branch)=AlSaada branch
+ فرع المعبيلة  (Mabella branch)=Mabella branch
+على=in`;
+const AL='[\\u0621-\\u063A\\u0641-\\u064A\\u064B-\\u0652]';
+const REGS=DICT.split('\n').map(l=>{const i=l.indexOf('=');return [l.slice(0,i),l.slice(i+1)]}).sort((a,b)=>b[0].length-a[0].length).map(([k,v])=>[new RegExp('(?<!'+AL+')'+k.replace(/[.*+?^${}()|[\]\\\/]/g,'\\$&')+'(?!'+AL+')','g'),v]);
+const TC=new Map(),OR=new WeakMap();
+function trn(t){if(!/[\u0621-\u064A]/.test(t))return t;if(TC.has(t))return TC.get(t);let r=t;for(const [re,v] of REGS)r=r.replace(re,v);TC.set(t,r);return r}
+function walkT(root,en){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT),a=[];let n;while(n=w.nextNode())a.push(n);
+ a.forEach(n=>{const p=n.parentNode&&n.parentNode.nodeName;if(p=='SCRIPT'||p=='STYLE')return;if(!OR.has(n))OR.set(n,n.nodeValue);n.nodeValue=en?trn(OR.get(n)):OR.get(n)})}
+let LANG='ar';
+function applyLang(l){LANG=l;const en=l=='en',h=document.documentElement;h.lang=l;h.dir=en?'ltr':'rtl';document.title=en?'Banking Services':'الخدمات البنكية';walkT(document.body,en);document.getElementById('lg').innerHTML='<span class="lo'+(en?'':' on')+'">ع</span><span class="lo'+(en?' on':'')+'">E</span>';document.getElementById('sq').placeholder=en?'Search services, cards and fees...':'ابحث في الخدمات والبطاقات والرسوم...'}
+function toggleLang(){applyLang(LANG=='ar'?'en':'ar');try{localStorage.setItem('lang',LANG)}catch(e){}}
+new MutationObserver(ms=>{if(LANG!='en')return;ms.forEach(m=>m.addedNodes.forEach(n=>{if(n.nodeType==3){if(!OR.has(n))OR.set(n,n.nodeValue);n.nodeValue=trn(OR.get(n))}else if(n.nodeType==1)walkT(n,true)}))}).observe(document.body,{childList:true,subtree:true});
+try{LANG=localStorage.getItem('lang')||'ar'}catch(e){}
+if(LANG=='en')applyLang('en');
+
+const IDX=[],nz=t=>t.toLowerCase().replace(/[\u064B-\u0652\u0640]/g,'').replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي');
+function addI(t,sub,kw,fn){IDX.push({t,sub,fn,h:nz(t+' '+sub+' '+kw+' '+trn(t+' '+sub+' '+kw))})}
+addI('حساب القروض','التجاري','قرض شخصي سكني سيارة فائدة قسط راتب تحويل راتب حكومي خاص',()=>go('sg'));
+addI('حساب القروض','الإسلامي','قرض',()=>go('sip'));
+addI('بطاقات كريدت كارد','التجاري','بطاقة ائتمان وديعة راتب',()=>go('scc'));
+addI('بطاقات كريدت كارد','الإسلامي','بطاقة ائتمان وديعة راتب كاش باك',()=>go('sic'));
+addI('جميع بطاقات الكريدت كارد','التجاري','',()=>allCardsC());
+addI('جميع بطاقات الكريدت كارد','الإسلامي','',()=>allCards());
+addI('بطاقة براتب العميل','التجاري','',()=>go('sccs'));addI('بطاقة براتب العميل','الإسلامي','',()=>go('sics'));
+addI('بطاقة بوديعة مبلغ','الإسلامي','',()=>go('sicd'));addI('بطاقة بوديعة ثابتة','الإسلامي','',()=>fixedCard());
+addI('تفاصيل ورسوم أخرى','','',()=>go('sx'));addI('الشيكات','تفاصيل ورسوم أخرى','',()=>go('sck'));addI('الفترة الزمنية لحل المشكلات','تفاصيل ورسوم أخرى','',()=>go('spr'));
+CT.forEach(c=>addI(c.n,'بطاقات التجاري',c.sr,()=>allCardsC()));
+['g','p','s','i'].forEach(k=>addI(CC[k].n,'بطاقات الإسلامي',CC[k].sr+' كاش باك رسوم',()=>allCards()));
+const fm={};CT.forEach(c=>(c.b||[]).forEach(x=>{(fm['c'+x]=fm['c'+x]||{t:x,sub:'بطاقات التجاري',n:[]}).n.push(c.n)}));
+['g','p','s','i'].forEach(k=>CC[k].b.forEach(x=>{(fm['i'+x]=fm['i'+x]||{t:x,sub:'بطاقات الإسلامي',n:[]}).n.push(CC[k].n)}));
+Object.keys(fm).forEach(k=>{const e=fm[k];addI(e.t,e.sub+' - '+e.n.join('، '),'',k[0]=='c'?()=>allCardsC():()=>allCards())});
+['sck','spr'].forEach(id=>document.querySelectorAll('#'+id+' .r').forEach(r=>addI(r.children[0].textContent,id=='sck'?'الشيكات':'الفترة الزمنية لحل المشكلات',r.children[1].textContent,()=>go(id))));
+addI('النسب بشكل عام','التجاري','نسب الفائدة قرض شخصي سكني سيارة حكومي خاص تحويل راتب',()=>showRates());
+addI('الفروع','تفاصيل ورسوم أخرى','فرع',()=>go('sbr'));
+addI('الفرع الرئيسي - الوطية','فروع التجاري','فرع',()=>go('sbr'));addI('الفرع الرئيسي - الوطية','فروع الإسلامي','فرع',()=>go('sbr'));
+addI('مواقع ماكينات الخدمات الذاتية','تفاصيل ورسوم أخرى','ماكينة صراف',()=>go('smc'));
+addI('ماكينة التجاري - الفرع الرئيسي - الوطية','مواقع الماكينات','',()=>go('smc'));addI('ماكينة الإسلامي - الفرع الرئيسي - الوطية','مواقع الماكينات','',()=>go('smc'));['المكتب الرئيسي (Head Office)','فرع مدينة قابوس 1 (Madinat Qaboos branch 1)','فرع مدينة قابوس 2 (Madinat Qaboos branch 2)','كشك مول عُمان (Mall Of Oman Kiosk)','فرع الموج (Al Mouj Branch)','فرع الخوض (Al Khoud Branch)','فرع صحار (Sohar Branch)','فرع بركاء (Barka branch)','فرع 18 نوفمبر (Nov 18 branch)','فرع العامرات (AlAmerat branch)','فرع الرسيل (Rusayl branch)','فرع الغبرة (AlGhubra branch)','فرع السعادة (AlSaada branch)','فرع المبيلة (Mabella branch)'].forEach(n=>addI('ماكينة التجاري - '+n,'مواقع الماكينات','',()=>go('smc')));
+
+function rtRows(k,tr,sec,n,tiers,sals){const T0=TR,S0=SEC;TR=tr;SEC=sec;const o=tiers.map((t,i)=>{const x=rt(sals[i],k,n);return {t,a:x[0],b:x[1],w:x[2],av:x[3]}});TR=T0;SEC=S0;return o}
+function rtTbl(title,k,tr,sec,n,tiers,sals){
+ const o=rtRows(k,tr,sec,n,tiers,sals),f2=v=>v.toFixed(2)+'%',flat=o[0].a==o[0].b&&o[0].w==12;
+ const th=flat?'<th>الراتب (ر.ع)</th><th>النسبة (ثابتة طوال المدة)</th>':'<th>الراتب (ر.ع)</th><th>'+L1(o[0].w)+'</th><th>'+L2(o[0].w)+'</th><th>المتوسط</th>';
+ const rows=o.map(x=>'<tr><td>'+x.t+'</td>'+(flat?'<td>'+f2(x.a)+'</td>':'<td>'+f2(x.a)+'</td><td>'+f2(x.b)+'</td><td>'+(x.av==null?'-':f2(x.av))+'</td>')+'</tr>').join('');
+ return '<h4 style="margin:14px 0 6px;color:var(--pr)">'+title+'</h4><div class="tb"><table><tr>'+th+'</tr>'+rows+'</table></div>'}
+function showRates(){
+ const T4=['أقل من 700','700 - 1,499','1,500 - 2,499','2,500 فأكثر'],S4=[600,1000,2000,3000],T3=['أقل من 1,000','1,000 - 2,499','2,500 فأكثر'],S3=[600,1500,3000],TO=['أقل من 500','500 - 999','1,000 فأكثر'],SO=[400,700,1500];
+ const G='جهة حكومية',P='جهة خاصة',sec=(t,b)=>'<div class="card"><details><summary style="font-weight:bold;cursor:pointer;color:var(--pr)">'+t+'</summary>'+b+'</details></div>';
+ const one=rtRows('c',true,G,12,['x'],[600])[0].a.toFixed(2);
+ rtc.innerHTML='<div class="card res"><h3>النسب بشكل عام</h3><div class="r"><span>جهة العمل</span><b>حكومية / خاصة</b></div><div class="r"><span>الحالة</span><b>مع تحويل راتب / بدون تحويل راتب</b></div></div>'+
+ sec('قرض شخصي',rtTbl('قطاع خاص - مع تحويل راتب','p',true,P,120,T4,S4)+rtTbl('قطاع حكومي - مع تحويل راتب','p',true,G,120,T4,S4)+rtTbl('حكومي أو خاص - بدون تحويل راتب','p',false,P,120,T4,S4))+
+ sec('قرض سكني',rtTbl('قطاع حكومي - مع تحويل راتب','h',true,G,300,T4,S4)+rtTbl('قطاع خاص - مع تحويل راتب - حتى 15 سنة','h',true,P,180,T4,S4)+rtTbl('قطاع خاص - مع تحويل راتب - أكثر من 15 إلى 20 سنة','h',true,P,240,T4,S4)+rtTbl('قطاع خاص - مع تحويل راتب - أكثر من 20 إلى 25 سنة','h',true,P,300,T4,S4)+'<div class="warn">بدون تحويل راتب: غير متاح (القرض السكني مع تحويل راتب فقط)</div>')+
+ sec('قرض سيارة',rtTbl('قطاع حكومي - مع تحويل راتب','c',true,G,120,T3,S3)+'<div class="r"><span>لأي راتب والمدة سنة واحدة</span><b>'+one+'%</b></div>'+rtTbl('قطاع خاص - مع تحويل راتب','c',true,P,120,TO,SO)+rtTbl('حكومي أو خاص - بدون تحويل راتب','c',false,G,120,T3,S3));
+ go('srt')}
+function srch(){const q=document.getElementById('sq').value.trim(),r=document.getElementById('sr'),h=document.getElementById('hm');
+ if(!q){r.innerHTML='';h.style.display='';return}
+ h.style.display='none';const tk=nz(q).split(/\s+/),m=[];
+ IDX.forEach((e,i)=>{if(tk.every(t=>e.h.includes(t)))m.push(i)});
+ r.innerHTML=m.length?m.slice(0,40).map(i=>'<div class="ri" data-i="'+i+'"><b>'+IDX[i].t+'</b><small>'+IDX[i].sub+'</small></div>').join(''):'<div class="ri"><small>لا توجد نتائج</small></div>'}
+document.getElementById('sr').addEventListener('click',ev=>{const d=ev.target.closest('.ri');if(d&&d.dataset.i)IDX[d.dataset.i].fn()});
+</script></div></body></html>
